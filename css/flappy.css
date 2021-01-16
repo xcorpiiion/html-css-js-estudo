@@ -1,0 +1,112 @@
+* {
+    /*box-sizing -> é utilizada para alterar a propriedade padrão da box model, 
+    usada para calcular larguras (widths) e alturas (heights) dos elementos.*/
+
+    /*content-box -> s propriedades width (largura) e height (altura) são medidas 
+    incluindo só o conteúdo, mas não o padding, border ou margin. */
+
+    /*padding-box -> As propriedades de largura (width) e de altura (height) incluem
+     o tamanho padding size, mas não incluem a propriedade border ou margem.*/
+
+    /*border-box -> As propriedades de largura (width) e de altura (height) incluem
+      o tamanho padding size e a propriedade border, mas não incluem a propriedade margin.*/
+    box-sizing: border-box;
+}
+
+/*@font-face -> permite importar uma fonte a partir de um arquivo externo e utilizá-la
+ como uma fonte nativa nas páginas HTML*/
+@font-face {
+    font-family: 'Pixel';
+    src: url('../fonts/Pixel.ttf')
+}
+
+/*[elemento html] -> Pega todos os elementos que estão dentro desse atributo no html e define os dados*/
+[wm-flappy] {
+    /*Position Relative -> Utilizando o position Relative o elemento passa a aceitar as propriedades Top, 
+        Bottom, Left e Right. Com elas você pode alterar o posicionamento do elemento*/
+    position: relative;
+    border: 5px solid dodgerblue;
+    height: 700px;
+    width: 1200px;
+    margin: 15px;
+    background: deepskyblue;
+    overflow: hidden;
+}
+
+.passaro {
+    /*Position Absolute: -> O position Absolute é um grande quebra galho no CSS. Com ele você pode posicionar 
+    qualquer elemento de acordo com o elemento pai que tenha um position diferente de static*/
+    position: absolute;
+    width: 60px;
+    left: calc(50% - 30px);
+}
+
+.par-de-barreiras {
+    /*Position Fixed -> O position fixed se comporta de maneira semelhante ao absolute, deixando de fazer 
+        parte do fluxo comum da página. Porém a grande diferença dele é que ele passa a se referenciar
+        ao window do seu navegador, ou seja, a área que aparece para o usuário independente de barra de rolagem*/
+    position: absolute;
+    top: 0;
+    height: 100%;
+    display: flex;
+    /*Flex direction explicação inicio*/
+
+    /*flex-direction -> deve ser aplicada ao container e define o eixo/fluxo de exibição em que os elementos 
+    serão organizados.*/
+
+    /*row (padrão) -> Os itens são organizados em forma de linha da esquerda para a direita;*/
+    /*row-reverse -> Os itens são organizados em forma exibição em linha da direita para a esquerda;*/
+    /*column -> Os itens são organizados em forma de colunas iniciando de cima para baixo;*/
+    /*column-reverse -> Os itens são organizados em forma de colunas iniciando de baixo para cima.*/
+
+    /*Flex direction explicação fim*/
+    flex-direction: column;
+
+    /*justify-content -> define o alinhamento dos itens ao longo do eixo principal do container. */
+
+    /*flex-start (padrão) -> Os itens são alinhados a partir do início do eixo principal; */
+    /*flex-end -> Os itens são alinhados a partir do fim do eixo principal;*/
+    /*center -> Os itens são alinhados ao centro do eixo principal;*/
+    /*space-between: O primeiro item é deslocado para o início do eixo principal, o último é deslocado para o 
+        final do eixo principale os demais são distribuídos uniformemente entre eles;*/
+    /*space-around -> Os itens são uniformemente distribuídos ao longo do eixo principal. */
+    justify-content: space-between;
+}
+
+.barreira {
+    display: flex;
+    flex-direction: column;
+    /*align-items -> Essa propriedade define como os itens são distribuídos ao longo do eixo transversal 
+        do container.*/
+
+    /*stretch (padrão) -> Os itens serão esticados para preencher toda a dimensão do eixo transversal 
+        (altura ou largura);*/
+    /*flex-start -> Os itens são deslocadas para o início do eixo transversal;*/
+    /*flex-end -> Os itens são deslocadas para o final do eixo transversal;*/
+    /*center -> Os itens são centralizados no eixo transversal;*/
+    /*baseline -> Os itens são alinhados a partir da base da primeira linha de texto de cada um.*/
+    align-items: center;
+}
+
+.barreira .borda {
+    height: 30px;
+    width: 130px;
+    background: linear-gradient(90deg, #639301, #a5e82e);
+    border: 2px solid black;
+}
+
+.barreira .corpo {
+    height: 40px;
+    width: 110px;
+    background: linear-gradient(90deg, #639301, #a5e82e);
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+}
+
+.progresso {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-family: 'Pixel';
+    font-size: 3.3em;
+}
